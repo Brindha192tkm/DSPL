@@ -38,3 +38,6 @@ grid on;
 xlabel('Time');
 ylabel('Amplitude');
 title('Over Sampling');
+
+OUTPUT
+\WhatsApp Image 2024-09-23 at 07.30.30_881d6ff7.jpg
