@@ -4,7 +4,7 @@ Am=input('Enter the amplitude of the signal=');
 Cy=input('Enter the number of cycles=');
 Fm=input('Enter the frequency=');
 t=0:(1/(Fm*Fm)):Cy/Fm;
-Amplitude=Am*sin(2*pi*Fm*t);
+Amplitude=Am*cos(2*pi*Fm*t);
 subplot(221);
 plot(t,Amplitude)
 grid on;
