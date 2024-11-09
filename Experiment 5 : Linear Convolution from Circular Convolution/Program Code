@@ -1,1 +1,29 @@
 
+clc; 
+clf; 
+close all; 
+clear all; 
+x=input ('enter x values='); 
+h=input ('enter h values='); 
+N=length(x); 
+m=length(h); 
+L=N+m-1 
+y_n=zeros(1,L); 
+x=[x zeros(1,(L-N))]; 
+h=[h zeros(1,(L-m))]; 
+for (i=1:L) 
+for (k=1:L) 
+y_n(i)=y_n(i)+x(k)*h(mod(i-k,L)+1); 
+end 
+end 
+disp(y_n); 
+y_conv=cconv(x,h,L); 
+disp(y_conv); 
+tile=tiledlayout(2,2); 
+title(tile,'circular convolution'); 
+nexttile; 
+stem(0:L-1,x); 
+xlabel('n'); 
+ylabel('x[n]'); 
+title('Linear convolution'); 
+grid on;
