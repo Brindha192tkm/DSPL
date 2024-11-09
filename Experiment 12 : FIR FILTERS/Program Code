@@ -1,1 +1,93 @@
 
+%Low Pass Filter using Rectangular Window 
+clc; 
+clf; 
+close all; 
+clear all; 
+Wc=0.5*pi; 
+N=input('Enter the value of N'); 
+alpha=(N-1)/2; 
+eps=0.001 
+n=0:1:N-1 
+hd=sin(Wc*(n-alpha+eps))/(pi*(n-alpha+eps)); 
+Wr=boxcar(N); 
+hn=hd*Wr'; 
+W=0:0.01:pi; 
+subplot(2,1,1); 
+plot(W/pi,10*log10(abs(n))); 
+title('Low Pass Filter using Rectangular Window'); 
+xlabel('Normalized Frequency'); 
+ylabel('Magnitude in dB'); 
+stem(Wr); 
+title('Rectangular Window Sequence'); 
+xlabel('No of Samples'); 
+ylabel('Amplitude'); 
+
+%High Pass Filter using Rectangular Window 
+N=input('Enter the value of N'); 
+Wc=0.5*pi; 
+alpha=(N-1)/2; 
+eps=0.001 
+n=0:1:N-1 
+hd=(sin(pi*(n-alpha+eps))-sin(Wc*(n-alpha+eps)))/(pi*(n-alpha+eps)); 
+Wr=boxcar(N); 
+hn=hd*Wr'; 
+W=0:0.01:pi; 
+h=freqz(hn,1,W); 
+subplot(2,1,1); 
+plot(W/pi,10*log10(abs(n))); 
+title('High Pass Filter using Rectangular Window'); 
+xlabel('Normalized Frequency'); 
+ylabel('Magnitude in dB'); 
+subplot(2,1,2); 
+stem(Wr); 
+title('Rectangular Window Sequence'); 
+xlabel('No of Samples'); 
+ylabel('Amplitude'); 
+
+%Band Pass Filter using Rectangular Window 
+N=input('Enter the value of N'); 
+Wc1=0.25*pi; 
+Wc2=0.75*pi; 
+alpha=(N-1)/2; 
+eps=0.001 
+n=0:1:N-1 
+hd=(sin(Wc1*(n-alpha+eps))-sin(Wc2*(n-alpha+eps)))/(pi*(n-alpha+eps)); 
+Wr=boxcar(N); 
+hn=hd*Wr'; 
+W=0:0.01:pi; 
+h=freqz(hn,1,W); 
+subplot(2,1,1); 
+plot(W/pi,10*log10(abs(n))); 
+title('Band Pass Filter using Rectangular Window'); 
+xlabel('Normalized Frequency'); 
+ylabel('Magnitude in dB'); 
+subplot(2,1,2); 
+stem(Wr); 
+title('Rectangular Window Sequence'); 
+xlabel('No of Samples'); 
+ylabel('Amplitude'); 
+
+%Band Stop Filter using Rectangular Window 
+N=input('Enter the value of N'); 
+Wc1=0.25*pi; 
+Wc2=0.75*pi; 
+alpha=(N-1)/2; 
+eps=0.001 
+n=0:1:N-1 
+hd=(sin(Wc1*(n-alpha+eps))-sin(Wc2*(n-alpha+eps))+sin(pi*(n-alpha+eps)))/(pi*(n
+alpha+eps)); 
+Wr=boxcar(N); 
+hn=hd*Wr'; 
+W=0:0.01:pi; 
+h=freqz(hn,1,W); 
+subplot(2,1,1); 
+plot(W/pi,10*log10(abs(n))); 
+title('Band Stop Filter using Rectangular Window'); 
+xlabel('Normalized Frequency'); 
+ylabel('Magnitude in dB'); 
+subplot(2,1,2); 
+stem(Wr); 
+title('Rectangular Window Sequence'); 
+xlabel('No of Samples'); 
+ylabel('Amplitude');
