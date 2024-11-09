@@ -1,1 +1,23 @@
 
+# include <stdio.h> 
+   int y[7]; 
+#include<math.h> 
+#define pi 3.1415625 
+ float a[200]; 
+ void main(){        
+               int i,j; 
+               int m=4; 
+               int n=4; 
+               int x[7]={1,2,3,4} 
+               int h[7]={4,3,2,1} 
+               for (i=0 ,i<m+n-1;i++){ 
+                          y[i]=0; 
+                          for (j=0 ,j<=i,j++){  
+                                                y[i]+=x[j]*h[i-j]; 
+                                            } 
+                                      }
+               printf(“Linear Convolution output \n”); 
+               for (i=0 ,i<m+n-1;i++){          
+                                        printf(“%d \n”,y[i]); 
+                                   } 
+                    }              
