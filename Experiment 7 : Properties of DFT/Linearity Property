@@ -1,23 +1,21 @@
 
 clc; 
-close all; 
 clear all; 
-x=input("enter the sequence:"); 
-N=length(x); 
-x=[x x]; 
-for k=1:2*N 
-y(k)=0; 
-for n=1:N 
-y(k)=y(k)+exp(-i*2*pi*(k-1)*(n-1)/N)*x(n); 
-end 
-end 
-disp((y(1:N))'); 
-disp("DFT of input in 1st period 1 to N:"); 
-disp((y(1:N))'); 
-disp("DFT of input in 2nd period N+1 to 2N:"); 
-disp((y(N+1:2*N))'); 
-if abs(y(1:N)-y(N+1:2*N))<10^(-10) 
-disp("periodicity verified"); 
+close all; 
+disp("linearity propert"); 
+clear all; 
+x1=input("enter the 1st sequence"); 
+x2=input("enter the 2nd sequence"); 
+a=input("enter the 1st scalar"); 
+b=input("enter the 2nd scalar"); 
+y1=dft(x1); 
+y2=dft(x2); 
+Y1=(dft(a*x1+b*x2)); 
+Y2=(a*y1+b*y2); 
+disp(Y1); 
+disp(Y2); 
+if abs(Y1-Y2)<10^(-10) 
+disp("linearity property is verified"); 
 else 
-disp("periodicity not verified"); 
+disp("linearity property is not verified"); 
 end
