@@ -1,16 +1,19 @@
 
 clc; 
 clf; 
+2. To find IDFT 
 close all; 
 clear all; 
-x=input ('enter x values='); 
-L=length(x); 
-X=zeros(1,L); 
+X=input ('enter x values='); 
+L=length(X); 
+x=zeros(1,L); 
 for i=1:L 
 for k=1:L 
-X(i)=X(i)+x(k)*exp((-j*2*pi*(k-1)*(i-1))/L); 
+x(i)=x(i)+1/L*((X(k)*exp(j*2*pi*(k-1)*(i-1))/L)); 
 end 
 end 
 disp(X); 
-X1=fft(X); 
-disp(X1);
+x1=ifft(X); 
+disp(x1); 
+stem(0:L-1,x1); 
+grid on; 
