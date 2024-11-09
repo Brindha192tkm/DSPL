@@ -1,1 +1,21 @@
 
+clc; 
+clear all; 
+close all; 
+disp("---8. Parseval's theorem -----"); 
+x=input('Enter the sequence : '); 
+N=length(x); 
+y=dft(x); 
+X=sum((abs(x)).^2); 
+Y=sum((abs(y)).^2)/N; 
+disp('DFT of x:'); 
+disp(y'); 
+disp("sum of |x|^2:"); 
+disp(X); 
+disp("1/N * sum of |DFT(x)|^2:"); 
+disp(Y); 
+if X==Y 
+disp("Parseval's theorem verified"); 
+else 
+disp("Parseval's theorem not verified"); 
+end
