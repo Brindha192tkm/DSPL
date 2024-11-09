@@ -1,1 +1,16 @@
 
+clc; 
+clf; 
+close all; 
+clear all; 
+x=input ('enter x values='); 
+L=length(x); 
+X=zeros(1,L); 
+for i=1:L 
+for k=1:L 
+X(i)=X(i)+x(k)*exp((-j*2*pi*(k-1)*(i-1))/L); 
+end 
+end 
+disp(X); 
+X1=fft(X); 
+disp(X1);
